@@ -13,7 +13,7 @@ public class BookStoreImpl extends UnicastRemoteObject implements BookStoreInter
       name = s;
    }
 
-   public byte[] downloadFile(String fileName){
+   public byte[] downloadBookFile(String fileName){
       try {
          File file = new File(fileName);
          byte buffer[] = new byte[(int)file.length()];
