@@ -23,9 +23,9 @@ public class FileClient{
          FileInterface fi = (FileInterface) Naming.lookup(name);
          while(selected != -1){
             Scanner sc = new Scanner(System.in);
-            System.out.println("Please select one of the options: 1 - Get Book File" + 
-            "2 - Give New Book Order , 3 - View Total Cost, 3 - Best Seller Recommendation," + 
-            "4 - View Receipt, -1 - exit");
+            System.out.println("Please select one of the options: 1 - Get Book File, " + 
+            "2 - Give New Book Order, 3 - View Total Cost, 4 - Best Seller Recommendation, " + 
+            "5 - View Receipt, -1 - exit");
             selected = Integer.parseInt(sc.nextLine());
             System.out.println("Client Selected Option " + selected);
             if(selected == 1){
@@ -38,14 +38,12 @@ public class FileClient{
                output.write(filedata,0,filedata.length);
                output.flush();
                output.close();
-               System.out.println("Successfully Recevied Book File From Server!");
+               System.out.println("Successfully Received Book File From Server!");
             } else if(selected == 2){
                System.out.println("Enter the name of the book: ");
                bookName = sc.nextLine();
-
                System.out.println("Enter the quantity: ");
                quantity = Integer.parseInt(sc.nextLine());
-
                System.out.println("New Order Added Successfully!");
                cost = fi.calcTotal(bookName, quantity);
                tCost += cost;

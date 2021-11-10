@@ -28,15 +28,13 @@ public class FileImpl extends UnicastRemoteObject implements FileInterface {
       }
    } 
 
-   public int addNum(int a, int b){
-      return (a + b);
-   }
-
    //method to display the client's total cost of order
    public String displayTotal(double cost){
-      String total_Cost = "Your total cost is: $" + cost + " plus tax";
+      double tax = 0.08 * cost;
+      double ans = cost + tax;
+      String total_Cost = "Your total cost is $" + cost + " plus tax is: " + ans;
       return total_Cost;   
-  }
+   }
 
    //displays receipt that includes tax calculation and time stamp
    public String displayReceipt(double cost){
