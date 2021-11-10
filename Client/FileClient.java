@@ -8,6 +8,7 @@ public class FileClient{
 
    public static int selected;
    private static String bookName;
+   private static String bookStore;
    private static int quantity;
    private static double tCost;
    private static double cost;
@@ -29,7 +30,7 @@ public class FileClient{
             selected = Integer.parseInt(sc.nextLine());
             System.out.println("Client Selected Option " + selected);
             if(selected == 1){
-               System.out.println("Pick a Book File to download: book_store.txt , book_store_new.txt");
+               System.out.println("Pick a Book File to download: book_store.txt , book_store2.txt");
                String bookFile = sc.nextLine();
                byte[] filedata = fi.downloadFile(bookFile);
                File file = new File(bookFile);
@@ -40,23 +41,27 @@ public class FileClient{
                output.close();
                System.out.println("Successfully Received Book File From Server!");
             } else if(selected == 2){
+               System.out.println("Enter the name of the store: ");
+               bookStore = sc.nextLine();
                System.out.println("Enter the name of the book: ");
                bookName = sc.nextLine();
                System.out.println("Enter the quantity: ");
                quantity = Integer.parseInt(sc.nextLine());
                System.out.println("New Order Added Successfully!");
-               cost = fi.calcTotal(bookName, quantity);
+               cost = fi.calcTotal(bookStore, bookName, quantity);
                tCost += cost;
             } else if(selected == 3){
                String costString = fi.displayTotal(tCost);
                System.out.println("Server Sent: " + costString);
             } else if(selected == 4){
-               bookName = fi.useRecommended();
+               System.out.println("Enter the name of the store: ");
+               String bStore = sc.nextLine();
+               bookName = fi.useRecommended(bStore);
                System.out.println("Server Recommended Book: " + bookName);
                System.out.println("Enter the quantity: ");
                quantity = Integer.parseInt(sc.nextLine());
                System.out.println("New Order Added Successfully!");
-               cost = fi.calcTotal(bookName, quantity);
+               cost = fi.calcTotal(bookStore, bookName, quantity);
                tCost += cost;
             } else if(selected == 5){
                 String receipt = fi.displayReceipt(tCost);

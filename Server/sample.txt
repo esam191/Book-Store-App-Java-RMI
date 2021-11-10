@@ -1,1 +1,0 @@
-sample file that the client will download from the server

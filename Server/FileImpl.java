@@ -49,8 +49,8 @@ public class FileImpl extends UnicastRemoteObject implements FileInterface {
    }
 
    //calculates the total cost by finding book+cost in the text file
-   public double calcTotal(String bookName, int quantity){
-      File file = new File("book_store.txt");
+   public double calcTotal(String bookStore, String bookName, int quantity){
+      File file = new File(bookStore);
       double total_cost = 0;
       try {
           final Scanner sc = new Scanner(file);
@@ -70,12 +70,20 @@ public class FileImpl extends UnicastRemoteObject implements FileInterface {
    }
 
   // returns a random book from the list of best sellers
-   public String useRecommended(){
+   public String useRecommended(String bookStore){
+      String topSellingBook;
+      int random;
       System.out.println("Recommending Top Seller... ");
       List<String> topSellers = Arrays.asList("To Kill A Mockingbird", "The Great Gatsby", "The Hunger Games", "The Fault in Our Stars", "Gone Girl");
+      List<String> topSellers2 = Arrays.asList("Will", "Atomic Habits", "Maid", "The Wish", "Going There");
       Random r = new Random();
-      int random = r.nextInt(topSellers.size());
-      String topSellingBook = topSellers.get(random);
+      if(bookStore.equals("book_store.txt")){
+         random = r.nextInt(topSellers.size());
+         topSellingBook = topSellers.get(random);
+      } else {
+         random = r.nextInt(topSellers2.size());
+         topSellingBook = topSellers2.get(random);
+      }
       return topSellingBook;
   }
 }
