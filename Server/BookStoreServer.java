@@ -1,15 +1,15 @@
 import java.rmi.*;
 
-public class FileServer {
+public class BookStoreServer {
    public static void main(String argv[]) {
       // if(System.getSecurityManager() == null) {
       //    System.setSecurityManager(new SecurityManager());
       // }
       try {
-         FileImpl fi = new FileImpl("FileServer");
-         Naming.rebind("rmi://127.0.0.1/FileServer", fi);
+         BookStoreImpl fi = new BookStoreImpl("BookStoreServer");
+         Naming.rebind("rmi://127.0.0.1/BookStoreServer", fi);
       } catch(Exception e) {
-         System.out.println("FileServer: "+e.getMessage());
+         System.out.println("BookStore Server: "+e.getMessage());
          e.printStackTrace();
       }
    }

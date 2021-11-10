@@ -4,11 +4,11 @@ import java.util.*;
 import java.rmi.server.UnicastRemoteObject;
 import java.text.SimpleDateFormat;
 
-public class FileImpl extends UnicastRemoteObject implements FileInterface {
+public class BookStoreImpl extends UnicastRemoteObject implements BookStoreInterface {
 
    private String name;
 
-   public FileImpl(String s) throws RemoteException{
+   public BookStoreImpl(String s) throws RemoteException{
       super();
       name = s;
    }
@@ -22,7 +22,7 @@ public class FileImpl extends UnicastRemoteObject implements FileInterface {
          input.close();
          return(buffer);
       } catch(Exception e){
-         System.out.println("FileImpl: "+e.getMessage());
+         System.out.println("BookStoreImpl: "+e.getMessage());
          e.printStackTrace();
          return(null);
       }
