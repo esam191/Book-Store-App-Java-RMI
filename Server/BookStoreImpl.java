@@ -13,8 +13,10 @@ public class BookStoreImpl extends UnicastRemoteObject implements BookStoreInter
       name = s;
    }
 
+   //method to download requested book store file 
    public byte[] downloadBookFile(String fileName){
       try {
+         System.out.println("Downloading Book File... ");
          File file = new File(fileName);
          byte buffer[] = new byte[(int)file.length()];
          BufferedInputStream input = new BufferedInputStream(new FileInputStream(fileName));
@@ -48,8 +50,9 @@ public class BookStoreImpl extends UnicastRemoteObject implements BookStoreInter
       return result;  
    }
 
-   //calculates the total cost by finding book+cost in the text file
+   //calculates the total cost by finding book+cost in the appropriate text book file
    public double calcTotal(String bookStore, String bookName, int quantity){
+      System.out.println("Calculating Total Cost... ");
       File file = new File(bookStore);
       double total_cost = 0;
       try {
