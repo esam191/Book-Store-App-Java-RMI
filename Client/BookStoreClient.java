@@ -26,7 +26,7 @@ public class BookStoreClient{
             if(selected == 1){
                System.out.println("Pick a Book File to download: book_store.txt , book_store2.txt");
                String bookFile = sc.nextLine();
-               byte[] filedata = fi.downloadFile(bookFile);
+               byte[] filedata = fi.downloadBookFile(bookFile);
                File file = new File(bookFile);
                BufferedOutputStream output = new
                BufferedOutputStream(new FileOutputStream(file.getName()));
@@ -59,7 +59,7 @@ public class BookStoreClient{
          selected = 0;
          //recommendBook = false;
       } catch(Exception e) {
-         System.err.println("FileServer exception: "+ e.getMessage());
+         System.err.println("BookStoreServer exception: "+ e.getMessage());
          e.printStackTrace();
       }
    }
