@@ -30,7 +30,5 @@ Usage: java BookStoreClient <host name>
 
 ```
 Please select one of the options: 1 - Get Book File, 2 - Give New Book Order, 
-```
-```
 3 - View Total Cost, 4 - Best Seller Recommendation, 5 - View Receipt, -1 - exit
 ```
