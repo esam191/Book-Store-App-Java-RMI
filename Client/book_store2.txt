@@ -1,0 +1,12 @@
+Book Name, Cost
+Will,55
+The Dark Hours,40
+The Sentence,35
+Dune,45
+The Judge's List,67
+The Wish,23
+The Storyteller,30
+Renegades,20
+Going There,62
+Maid,82
+Atomic Habits,108

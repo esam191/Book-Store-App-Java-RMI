@@ -16,7 +16,7 @@ public class BookStoreImpl extends UnicastRemoteObject implements BookStoreInter
    //method to download requested book store file 
    public byte[] downloadBookFile(String fileName){
       try {
-         System.out.println("Downloading Book File... ");
+         System.out.println("Sending Book File... ");
          File file = new File(fileName);
          byte buffer[] = new byte[(int)file.length()];
          BufferedInputStream input = new BufferedInputStream(new FileInputStream(fileName));
@@ -32,14 +32,16 @@ public class BookStoreImpl extends UnicastRemoteObject implements BookStoreInter
 
    //method to display the client's total cost of order
    public String displayTotal(double cost){
+      System.out.println("Displaying Cost... ");
       double tax = 0.08 * cost;
       double ans = cost + tax;
-      String total_Cost = "Your total cost is $" + cost + " plus tax is: " + ans;
+      String total_Cost = "Your total cost is $" + cost + " plus tax is: " + ans + "\n";
       return total_Cost;   
    }
 
    //displays receipt that includes tax calculation and time stamp
    public String displayReceipt(double cost){
+      System.out.println("Displaying Receipt... ");
       double tax = 0.08 * cost;
       double total = cost + tax;
       Date d = new Date();
